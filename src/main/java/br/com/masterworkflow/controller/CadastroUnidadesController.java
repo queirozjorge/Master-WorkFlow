@@ -18,18 +18,18 @@ public class CadastroUnidadesController {
 	@GetMapping
 	@RequestMapping("/cadastro")
 	public String cadastro(RequisicaoCadastroUnidadesDto requisicao) {
-		return "form-cadastro-unidades";
+		return "/form-cadastro-unidades";
 	}
 	
 	@PostMapping("cadastro/cadastrarUnidade")
 	public String cadastrar(@Valid RequisicaoCadastroUnidadesDto requisicao, BindingResult result) {
 
 		if (result.hasErrors()) {
-			return "form-cadastro-unidades";
+			return "/form-cadastro-unidades";
 		}
 		
 		Unidade unidade = requisicao.toUnidade();
 		CadastroUnidadesService.cadastrarUnidade(unidade);
-		return "/login";
+		return "/form-cadastro-unidades";
 	}
 }

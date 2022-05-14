@@ -2,6 +2,8 @@ package br.com.masterworkflow.dto;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.masterworkflow.model.Unidade;
+
 public class RequisicaoCadastroUnidadesDto {
 	
 	@NotBlank(message = "O campo nome deve estar preenchido!")
@@ -24,6 +26,13 @@ public class RequisicaoCadastroUnidadesDto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Unidade toUnidade() {
+		Unidade unidade = new Unidade();
+		unidade.setNome(this.nome);
+		unidade.setDescricao(this.descricao);
+		return unidade;
 	}
 
 }

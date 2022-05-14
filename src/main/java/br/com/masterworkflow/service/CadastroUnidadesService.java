@@ -10,7 +10,7 @@ public abstract class CadastroUnidadesService {
 	@Autowired
 	private static CadastroUnidadesRepository cadastroUnidadesRepository;
 	
-	public static void cadastrarUnidade (Unidade unidade) {
+	public static void cadastrar(Unidade unidade) {
 		cadastroUnidadesRepository.save(unidade);
 	}
 }

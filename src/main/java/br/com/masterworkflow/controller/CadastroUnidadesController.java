@@ -29,7 +29,7 @@ public class CadastroUnidadesController {
 		}
 		
 		Unidade unidade = requisicao.toUnidade();
-		CadastroUnidadesService.cadastrarUnidade(unidade);
+		CadastroUnidadesService.cadastrar(unidade);
 		return "/form-cadastro-unidades";
 	}
 }

@@ -1,16 +1,22 @@
 package br.com.masterworkflow.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.masterworkflow.model.PrimeiroAcessoUnidade;
-import br.com.masterworkflow.repository.CadastroPrimeiroAcessoUnidadeRepository;
+import br.com.masterworkflow.repository.PrimeiroAcessoUnidadeRepository;
 
-public abstract class CadastroPrimeiroAcessoService {
-	
+@Service
+public class CadastroPrimeiroAcessoService {
+
+	private PrimeiroAcessoUnidadeRepository cadastroPrimeiroAcessoUnidadeRepository;
+
 	@Autowired
-	private static CadastroPrimeiroAcessoUnidadeRepository cadastroPrimeiroAcessoUnidadeRepository;
+	public CadastroPrimeiroAcessoService(PrimeiroAcessoUnidadeRepository cadastroPrimeiroAcessoUnidadeRepository) {
+		this.cadastroPrimeiroAcessoUnidadeRepository = cadastroPrimeiroAcessoUnidadeRepository;
+	}
 	
-	public static void cadastrar(PrimeiroAcessoUnidade primeiroAcesso) {
+	public void cadastrar(PrimeiroAcessoUnidade primeiroAcesso) {
 		cadastroPrimeiroAcessoUnidadeRepository.save(primeiroAcesso);
 	}
 }

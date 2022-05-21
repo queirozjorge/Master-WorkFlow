@@ -1,16 +1,22 @@
 package br.com.masterworkflow.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.masterworkflow.model.Unidade;
-import br.com.masterworkflow.repository.CadastroUnidadesRepository;
+import br.com.masterworkflow.repository.UnidadesRepository;
 
-public abstract class CadastroUnidadesService {
+@Service
+public class CadastroUnidadesService {
+
+	private final UnidadesRepository cadastroUnidadesRepository;
 
 	@Autowired
-	private static CadastroUnidadesRepository cadastroUnidadesRepository;
-	
-	public static void cadastrar(Unidade unidade) {
+	public CadastroUnidadesService(UnidadesRepository cadastroUnidadesRepository) {
+		this.cadastroUnidadesRepository = cadastroUnidadesRepository;
+	}
+
+	public void cadastrar(Unidade unidade) {
 		cadastroUnidadesRepository.save(unidade);
 	}
 }

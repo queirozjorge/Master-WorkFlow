@@ -1,11 +1,14 @@
 package br.com.masterworkflow.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Unidade {
@@ -14,11 +17,11 @@ public class Unidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	private PrimeiroAcessoUnidade primeiroAcesso;
-
 	private String nome;
 	private String descricao;
+
+	@OneToOne(mappedBy = "unidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private PrimeiroAcessoUnidade primeiroAcesso;
 
 	public String getNome() {
 		return nome;
@@ -44,6 +47,7 @@ public class Unidade {
 		this.id = id;
 	}
 
+	@JsonIgnore
 	public PrimeiroAcessoUnidade getPrimeiroAcesso() {
 		return primeiroAcesso;
 	}

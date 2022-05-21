@@ -2,6 +2,7 @@ package br.com.masterworkflow.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,13 @@ import br.com.masterworkflow.service.CadastroPrimeiroAcessoService;
 
 @Controller
 public class CadastroPrimeiroAcessoUnidadeController {
+
+	private final CadastroPrimeiroAcessoService cadastroPrimeiroAcessoService;
+
+	@Autowired
+	public CadastroPrimeiroAcessoUnidadeController(CadastroPrimeiroAcessoService cadastroPrimeiroAcessoService) {
+		this.cadastroPrimeiroAcessoService = cadastroPrimeiroAcessoService;
+	}
 
 	@GetMapping
 	@RequestMapping("/cadastroPrimeiroAcesso")
@@ -29,7 +37,7 @@ public class CadastroPrimeiroAcessoUnidadeController {
 		}
 
 		PrimeiroAcessoUnidade primeiroAcessoUnidade = requisicao.toPrimeiroAcessoUnidade();
-		CadastroPrimeiroAcessoService.cadastrar(primeiroAcessoUnidade);
+		cadastroPrimeiroAcessoService.cadastrar(primeiroAcessoUnidade);
 		return "/form-cadastro-primeiro-acesso";
 	}
 }

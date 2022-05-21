@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.masterworkflow.model.PrimeiroAcessoUnidade;
 
 @Repository
-public interface CadastroPrimeiroAcessoUnidadeRepository extends JpaRepository<PrimeiroAcessoUnidade, Long> {
+public interface PrimeiroAcessoUnidadeRepository extends JpaRepository<PrimeiroAcessoUnidade, Long> {
 
 }

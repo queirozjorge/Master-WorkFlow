@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.masterworkflow.model.Unidade;
 
 @Repository
-public interface CadastroUnidadesRepository extends JpaRepository<Unidade,Long> {
+public interface UnidadesRepository extends JpaRepository<Unidade,Long> {
 
 }

@@ -7,14 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class PrimeiroAcessoUnidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@OneToOne(mappedBy = "primeiroAcesso", fetch = FetchType.LAZY)
+	
+	@JsonBackReference
+	@OneToOne(fetch = FetchType.LAZY)
 	private Unidade unidade;
 
 	private String textoDescritivo;

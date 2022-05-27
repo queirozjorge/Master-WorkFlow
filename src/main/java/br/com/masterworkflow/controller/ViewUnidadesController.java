@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.masterworkflow.model.Unidade;
-import br.com.masterworkflow.repository.UnidadesRepository;
+import br.com.masterworkflow.service.UnidadesService;
 
 @RestController
-@RequestMapping("/listarUnidades")
+@RequestMapping("/listar-unidades")
 public class ViewUnidadesController {
 
-	private final UnidadesRepository unidadesRepository;
+	private final UnidadesService unidadesService;
 
 	@Autowired
-	public ViewUnidadesController(UnidadesRepository unidadesRepository) {
-		this.unidadesRepository = unidadesRepository;
+	public ViewUnidadesController(UnidadesService unidadesService) {
+		this.unidadesService = unidadesService;
 	}
 
 	@GetMapping
 	public List<Unidade> getUnidades() {
-		return unidadesRepository.findAll();
+		return unidadesService.listar();
 	}
 }

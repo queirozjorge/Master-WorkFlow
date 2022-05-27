@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.masterworkflow.dto.RequisicaoCadastroUnidadesDto;
 import br.com.masterworkflow.model.Unidade;
-import br.com.masterworkflow.service.CadastroUnidadesService;
+import br.com.masterworkflow.service.UnidadesService;
 
 @RestController
 public class CadastroUnidadesController {
 
-	private final CadastroUnidadesService cadastroUnidadesService;
+	private final UnidadesService cadastroUnidadesService;
 
 	@Autowired
-	public CadastroUnidadesController(CadastroUnidadesService cadastroUnidadesService) {
+	public CadastroUnidadesController(UnidadesService cadastroUnidadesService) {
 		this.cadastroUnidadesService = cadastroUnidadesService;
 	}
 

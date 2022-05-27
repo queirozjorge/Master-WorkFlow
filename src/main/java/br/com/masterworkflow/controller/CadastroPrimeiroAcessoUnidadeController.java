@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.masterworkflow.dto.RequisicaoCadastroPrimeiroAcessoDto;
 import br.com.masterworkflow.model.PrimeiroAcessoUnidade;
-import br.com.masterworkflow.service.CadastroPrimeiroAcessoService;
+import br.com.masterworkflow.service.PrimeiroAcessoService;
 
 @Controller
 public class CadastroPrimeiroAcessoUnidadeController {
 
-	private final CadastroPrimeiroAcessoService cadastroPrimeiroAcessoService;
+	private final PrimeiroAcessoService cadastroPrimeiroAcessoService;
 
 	@Autowired
-	public CadastroPrimeiroAcessoUnidadeController(CadastroPrimeiroAcessoService cadastroPrimeiroAcessoService) {
+	public CadastroPrimeiroAcessoUnidadeController(PrimeiroAcessoService cadastroPrimeiroAcessoService) {
 		this.cadastroPrimeiroAcessoService = cadastroPrimeiroAcessoService;
 	}
 

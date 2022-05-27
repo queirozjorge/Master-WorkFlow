@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Unidade {
@@ -20,6 +21,7 @@ public class Unidade {
 	private String nome;
 	private String descricao;
 
+	@JsonManagedReference
 	@OneToOne(mappedBy = "unidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private PrimeiroAcessoUnidade primeiroAcesso;
 

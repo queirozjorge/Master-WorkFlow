@@ -28,8 +28,7 @@ public class Unidade {
 	@OneToOne(mappedBy = "unidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private PrimeiroAcessoUnidade primeiroAcesso;
 
-	@JsonManagedReference
-	@OneToMany(mappedBy = "unidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "unidade")
 	private List<Defeito> defeitos;
 
 	public String getNome() {

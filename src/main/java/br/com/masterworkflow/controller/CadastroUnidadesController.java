@@ -34,7 +34,6 @@ public class CadastroUnidadesController {
 	public String cadastrar(@Valid @RequestBody RequisicaoCadastroUnidadesDto requisicao, BindingResult result) {
 
 		if (result.hasErrors()) {
-			System.out.println("erro");
 			return "/form-cadastro-unidades";
 		}
 

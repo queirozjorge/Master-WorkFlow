@@ -1,5 +1,7 @@
 package br.com.masterworkflow.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class DefeitoService {
 
 	public void cadastrar(Defeito defeito) {
 		defeitoRepository.save(defeito);
+	}
+
+	public List<Defeito> listar() {
+		return defeitoRepository.findAll();
 	}
 
 }

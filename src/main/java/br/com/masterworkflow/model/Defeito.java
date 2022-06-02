@@ -1,13 +1,12 @@
 package br.com.masterworkflow.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Defeito {
@@ -17,9 +16,8 @@ public class Defeito {
 	private Long id;
 	private String titulo;
 	private String texto;
-	
-	@JsonBackReference
-	@ManyToOne(fetch = FetchType.LAZY)
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Unidade unidade;
 
 	public Long getId() {

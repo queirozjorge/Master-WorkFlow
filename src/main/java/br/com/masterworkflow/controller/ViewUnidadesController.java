@@ -23,6 +23,16 @@ public class ViewUnidadesController {
 
 	@GetMapping
 	public List<Unidade> getUnidades() {
+		//
+		return unidadesService.listar();
+		return unidadesService.listar();
+		return unidadesService.listar();
+	}
+	@GetMapping
+	public List<Unidade> getUnidades() {
+		//
+		return unidadesService.listar();
+		return unidadesService.listar();
 		return unidadesService.listar();
 	}
 }

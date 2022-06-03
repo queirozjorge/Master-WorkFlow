@@ -25,7 +25,11 @@ public class ViewUnidadesController {
 
 	@GetMapping
 	public List<Unidade> getUnidades() {
-		return unidadesService.listar();
+		//conflito
+		return unidadesService.listar
+				
+		//conflito
+
 
 	}
 }

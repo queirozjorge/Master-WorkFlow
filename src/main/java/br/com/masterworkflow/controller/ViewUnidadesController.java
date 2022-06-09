@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,7 @@ import br.com.masterworkflow.model.Unidade;
 import br.com.masterworkflow.service.UnidadesService;
 
 @RestController
-@RequestMapping("/listar-unidades")
+@RequestMapping
 public class ViewUnidadesController {
 
 	private final UnidadesService unidadesService;
@@ -23,7 +24,7 @@ public class ViewUnidadesController {
 
 	}
 
-	@GetMapping
+	@GetMapping("/listar-unidades")
 	public List<Unidade> getUnidades() {
 		//conflito
 		return unidadesService.listar
@@ -31,5 +32,11 @@ public class ViewUnidadesController {
 		//conflito
 
 
+	}
+	
+	@GetMapping("/listar-por-id/{id}")
+	public List<Unidade>listarPorId(@PathVariable("id") String id) {
+		Long idConvertido = Long.parseLong(id);
+		return unidadesService.listarPorId(idConvertido);
 	}
 }

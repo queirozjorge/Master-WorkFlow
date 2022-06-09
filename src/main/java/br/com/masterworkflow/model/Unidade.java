@@ -1,11 +1,14 @@
 package br.com.masterworkflow.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -23,6 +26,9 @@ public class Unidade {
 	@JsonManagedReference
 	@OneToOne(mappedBy = "unidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private PrimeiroAcessoUnidade primeiroAcesso;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "unidade")
+	private List<Defeito> defeitos;
 
 	public String getNome() {
 		return nome;
